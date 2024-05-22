@@ -30,22 +30,22 @@ public class SimulationWindow {
 
     private void initialize() {
 		frame = new JFrame();
-		frame.setSize(1800, 1200);
-		frame.setTitle("Drone Simulator");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout());
-	
-		// Create panel for buttons and labels using GridBagLayout
-		JPanel controlPanel = new JPanel(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(0, 0, 0, 0);
-	
-		// Create panels for button groups
-		JPanel startPausePanel = new JPanel(new GridLayout(1, 1));
-		JPanel speedPanel = new JPanel(new GridLayout(1, 2));
-		JPanel spinPanel = new JPanel(new GridLayout(2, 4));
-		JPanel togglePanel = new JPanel(new GridLayout(1, 2));
-		JPanel otherPanel = new JPanel(new GridLayout(1, 2));
+    frame.setSize(1800, 1200);
+    frame.setTitle("Drone Simulator");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.getContentPane().setLayout(new BorderLayout());
+
+    // Create panel for buttons and labels using GridBagLayout
+    JPanel controlPanel = new JPanel(new GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
+    gbc.insets = new Insets(0, 0, 0, 0);
+
+    // Create panels for button groups
+    JPanel startPausePanel = new JPanel(new GridLayout(1, 1));
+    JPanel speedPanel = new JPanel(new GridLayout(1, 2));
+    JPanel spinPanel = new JPanel(new GridLayout(2, 4));
+    JPanel togglePanel = new JPanel(new GridLayout(1, 2));
+    JPanel otherPanel = new JPanel(new GridLayout(1, 2));
 	
 		// Add buttons to their respective panels with action listeners
 		JButton stopBtn = new JButton("Start/Pause");
@@ -129,25 +129,26 @@ public class SimulationWindow {
 		buttonPanel.add(spinPanel);
 		buttonPanel.add(togglePanel);
 		buttonPanel.add(otherPanel);
-	
+		
+		// Update constraints to position the buttonPanel on the left side
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		gbc.gridwidth = 2;
+		gbc.gridwidth = 1;
 		controlPanel.add(buttonPanel, gbc);
-	
+		
 		// Add labels
 		info_label = new JLabel();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.gridwidth = 2;
+		gbc.gridx = 1; // Position labels to the right
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
 		controlPanel.add(info_label, gbc);
-	
+		
 		info_label2 = new JLabel();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.gridwidth = 2;
+		gbc.gridx = 1; // Position labels to the right
+		gbc.gridy = 1; // Update the gridy value for the second label
+		gbc.gridwidth = 1;
 		controlPanel.add(info_label2, gbc);
-	
+		
 		frame.getContentPane().add(controlPanel, BorderLayout.SOUTH);
 
         // Create and add the map painter to the center of the frame
