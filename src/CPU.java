@@ -69,16 +69,7 @@ public class CPU{
 		isPlay = false;
 		isPlayedBeforeStop = false;
 	}
-	
-	public long getElapsedMilli() {
-		return this.elapsedMilli;
-	}
-	
-	public void resetClock() {
-		this.elapsedMilli = 0;
-	}
-	
-	
+
 	public void thread_run() {
 		int functions_size= 0;
 		int[] last_sample_times = null;

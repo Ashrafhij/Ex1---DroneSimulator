@@ -1,6 +1,7 @@
 import javax.imageio.ImageIO;
 
 import java.awt.Graphics;
+import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.DecimalFormat;
@@ -14,7 +15,7 @@ public class Drone {
 	private Point pointFromStart;
 	public Point startPoint;
 	public List<Lidar> lidars;
-	private String drone_img_path = "C:\\Users\\admin\\Desktop\\Autonomous_robots\\Ex1---DroneSimulator\\Maps\\drone_3_pixels.png";
+	private String drone_img_path = "D:\\Tests\\drone_3_pixels.png";
 	public Map realMap;
 	private double rotation;
 	private double speed;
@@ -39,12 +40,8 @@ public class Drone {
 	public void play() {
 		cpu.play();
 	}
-	
-	public void stop() {
-		cpu.stop();
-	}
-	
-	
+
+
 	public void addLidar(int degrees) {
 		Lidar lidar = new Lidar(this,degrees);
 		lidars.add(lidar);
@@ -102,16 +99,7 @@ public class Drone {
 		gyroRotation += rotationChanged;
 		gyroRotation = formatRotation(gyroRotation);
 	}
-	
-	public void rotateRight(int deltaTime) {
-		double rotationChanged = -WorldParams.rotation_per_second*deltaTime/1000;
-		
-		rotation += rotationChanged;
-		rotation = formatRotation(rotation);
-		
-		gyroRotation += rotationChanged;
-		gyroRotation = formatRotation(gyroRotation);
-	}
+
 	
 	public void speedUp(int deltaTime) {
 		speed += (WorldParams.accelerate_per_second*deltaTime/1000);
@@ -130,7 +118,6 @@ public class Drone {
 	
 	boolean initPaint = false;
 	BufferedImage mImage;
-	int j=0;
 	public void paint(Graphics g) {
 		if(!initPaint) {
 			try {
@@ -141,11 +128,7 @@ public class Drone {
 				
 			}
 		}
-		//Point p = getPointOnMap();
-		//g.drawImage(mImage,p.getX(),p.getY(),mImage.getWidth(),mImage.getHeight());
-		
-		
-		
+
 		
 		for(int i=0;i<lidars.size();i++) {
 			Lidar lidar = lidars.get(i);

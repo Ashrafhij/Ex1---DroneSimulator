@@ -90,7 +90,6 @@ public class AutoAlgo1 {
 		for(int i=0;i<drone.lidars.size();i++) {
 			Lidar lidar = drone.lidars.get(i);
 			double rotation = drone.getGyroRotation() + lidar.degrees;
-			//rotation = Drone.formatRotation(rotation);
 			for(int distanceInCM=0;distanceInCM < lidar.current_distance;distanceInCM++) {
 				Point p = Tools.getPointByDistance(fromPoint, rotation, distanceInCM);
 				setPixel(p.x,p.y,PixelState.explored);
@@ -99,7 +98,6 @@ public class AutoAlgo1 {
 			if(lidar.current_distance > 0 && lidar.current_distance < WorldParams.lidarLimit - WorldParams.lidarNoise) {
 				Point p = Tools.getPointByDistance(fromPoint, rotation, lidar.current_distance);
 				setPixel(p.x,p.y,PixelState.blocked);
-				//fineEdges((int)p.x,(int)p.y);
 			}
 		}
 	}
@@ -125,51 +123,7 @@ public class AutoAlgo1 {
 			map[xi][yi] = state; 
 		}
 	}
-	/*
-	
-	public void fineEdges(int x,int y) {
-		int radius = 6;
-		
-		for(int i=y-radius;i<y+radius;i++) {
-			for(int j=x-radius;j<x+radius;j++) {
-				if(Math.abs(y-i) <= 1 && Math.abs(x-j) <= 1) {
-					continue;
-				}
-				if(map[i][j] == PixelState.blocked) {
-					blockLine(x,y,j,i);
-				}
-			}
-		}
-	}
-	*/
-	/*
-	public void blockLine(int x0,int y0,int x1,int y1) {
-		if(x0 > x1) {
-			int tempX = x0;
-			int tempY = y0;
-			x0 = x1;
-			y0 = y1;
-			x1 = tempX;
-			y1 = tempY;
-		}
-		
-	     double deltax = x1 - x0;
-	     double deltay = y1 - y0;
-	     double deltaerr = Math.abs(deltay / deltax);    // Assume deltax != 0 (line is not vertical),
-	     double error = 0.0; // No error at start
-	     int y = y0;
-	     for (int x=x0;x<x1;x++) {
-	    	 setPixel(x,y,PixelState.blocked);
-	         error = error + deltaerr;
-	         if( 2*error >= deltax ) {
-                y = y + 1;
-                error=error - deltax;
-	        }
-	     }
-	
-	}
-	*/
-	
+
 	public void paintBlindMap(Graphics g) {
 		Color c = g.getColor();
 		
@@ -250,8 +204,6 @@ public class AutoAlgo1 {
 		if(!SimulationWindow.toogleAI) {
 			return;
 		}
-	
-		
 		if(is_init) {
 			speedUp();
 			Point dronePoint = drone.getOpticalSensorLocation();
@@ -268,7 +220,6 @@ public class AutoAlgo1 {
 		
 		Point dronePoint = drone.getOpticalSensorLocation();
 
-		
 		if(SimulationWindow.return_home) {
 			
 			if( Tools.getDistanceBetweenPoints(getLastPoint(), dronePoint) <  max_distance_between_points) {
@@ -284,9 +235,7 @@ public class AutoAlgo1 {
 				mGraph.addVertex(dronePoint);
 			}
 		}
-	
-		
-		
+
 		if(!is_risky) {
 			Lidar lidar = drone.lidars.get(0);
 			if(lidar.current_distance <= max_risky_distance ) {
@@ -319,8 +268,7 @@ public class AutoAlgo1 {
 				
 				int spin_by = max_angle_risky;
 			
-			
-				
+
 				if(a > 270 && b > 270) {
 					is_lidars_max = true;
 					Point l1 = Tools.getPointByDistance(dronePoint, lidar1.degrees + drone.getGyroRotation(), lidar1.current_distance);
@@ -369,8 +317,6 @@ public class AutoAlgo1 {
 				});
 			}
 		}
-			
-		//}
 	}
 	
 	int counter = 0;
@@ -420,8 +366,7 @@ public class AutoAlgo1 {
 			}
 		}
 		
-	
-		 
+
 		lastGyroRotation = curr;
 		degrees_left_to_rotate-=just_rotated;
 		degrees_left.remove(0);
@@ -463,21 +408,7 @@ public class AutoAlgo1 {
 		isRotating =1;
 	}
 	
-	public void spinBy(double degrees,boolean isFirst) {
-		lastGyroRotation = drone.getGyroRotation();
-		if(isFirst) {
-			degrees_left.add(0,degrees);
-			degrees_left_func.add(0,null);
-		
-			
-		} else {
-			degrees_left.add(degrees);
-			degrees_left_func.add(null);
-		}
-		
-		isRotating =1;
-	}
-	
+
 	public void spinBy(double degrees) {
 		lastGyroRotation = drone.getGyroRotation();
 		

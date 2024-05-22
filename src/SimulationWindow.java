@@ -30,17 +30,12 @@ public class SimulationWindow {
 	boolean toogleStop = true;
 	private void initialize() {
 		frame = new JFrame();
-		frame.setSize(1500,700);
+		frame.setSize(2500,2500);
 		frame.setTitle("Drone Simulator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		
-		
-		/*
-		 * Stop\Resume
-		 */
-	
+
 		JButton stopBtn = new JButton("Start/Pause");
 		stopBtn.addActionListener(new ActionListener()
 		{
@@ -56,11 +51,7 @@ public class SimulationWindow {
 		});
 		stopBtn.setBounds(1300, 0, 170, 50);
 		frame.getContentPane().add(stopBtn);
-		/*
-		 * Speeds
-		 */
-		
-		
+
 		JButton speedBtn1 = new JButton("speedUp");
 		speedBtn1.addActionListener(new ActionListener()
 		{
@@ -83,10 +74,7 @@ public class SimulationWindow {
 		speedBtn2.setBounds(1400, 100, 100, 50);
 		frame.getContentPane().add(speedBtn2);
 		
-		/*
-		 * Spins
-		 */
-		
+
 		JButton spinBtn1 = new JButton("spin180");
 		spinBtn1.addActionListener(new ActionListener()
 		{
@@ -175,10 +163,7 @@ public class SimulationWindow {
 		spinBtn8.setBounds(1700, 300, 100, 50);
 		frame.getContentPane().add(spinBtn8);
 		
-		/*
-		 * Toogle real map
-		 */
-		
+
 		JButton toogleMapBtn = new JButton("toogle Map");
 		toogleMapBtn.addActionListener(new ActionListener()
 		{
@@ -189,11 +174,7 @@ public class SimulationWindow {
 		});
 		toogleMapBtn.setBounds(1300, 400, 120, 50);
 		frame.getContentPane().add(toogleMapBtn);
-		
-		/*
-		 * Toogle AI
-		 */
-		
+
 		JButton toogleAIBtn = new JButton("toogle AI");
 		toogleAIBtn.addActionListener(new ActionListener()
 		{
@@ -204,11 +185,6 @@ public class SimulationWindow {
 		});
 		toogleAIBtn.setBounds(1400, 400, 120, 50);
 		frame.getContentPane().add(toogleAIBtn);
-		
-		/*
-		 * RETURN TO HOME
-		 */
-		
 
 		JButton returnBtn = new JButton("Return Home");
 		returnBtn.addActionListener(new ActionListener()
@@ -239,19 +215,11 @@ public class SimulationWindow {
 		Graph.setBounds(1600, 400, 120, 50);
 		frame.getContentPane().add(Graph);
 		
-		/*
-		 * Info label 
-		 */
-		
-		
+
 		info_label = new JLabel();
 		info_label.setBounds(1300, 500, 300, 200);
 		frame.getContentPane().add(info_label);
-		
-		/*
-		 * Info label 
-		 */
-		
+
 		
 		info_label2 = new JLabel();
 		info_label2.setBounds(1400, 450, 300, 200);
@@ -275,7 +243,7 @@ public class SimulationWindow {
 				new Point(84,73),
 				new Point(92,100)};
 		
-		Map map = new Map("D:\\Tests\\Maps\\p1" + map_num + ".png",startPoints[map_num-1]);
+		Map map = new Map("Maps/p15.png",startPoints[map_num-1]);
 		
 		algo1 = new AutoAlgo1(map);
 		
@@ -304,12 +272,5 @@ public class SimulationWindow {
 				"<BR>" + String.valueOf(algo1.risky_dis) + "</html>");
 		
 	}
-	
-	public void stopCPUS() {
-		CPU.stopAllCPUS();
-	}
-	
-	public void resumseCPUS() {
-		CPU.stopAllCPUS();
-	}
+
 }

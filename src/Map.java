@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 
 public class Map{
 	private boolean[][] map;
-	Drone drone;
 	Point drone_start_point;
 
 	public Map(String path,Point drone_start_point) {
