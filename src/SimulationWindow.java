@@ -197,7 +197,7 @@ buttonPanel.add(otherPanel);
             new Point(92, 100)
         };
 
-        Map map = new Map("Maps/p15.png", startPoints[map_num - 1]);
+        Map map = new Map("Maps/p16.png", startPoints[map_num - 1]);
 
         algo1 = new AutoAlgo1(map);
 
