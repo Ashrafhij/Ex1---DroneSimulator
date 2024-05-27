@@ -29,6 +29,16 @@ public class Tools {
 		}
 	}
 
+	public static double getRotationBetweenPoints (Point from, Point to) {
+		double y1 = from.y - to.y;
+		double x1 = from.x - to.x;
+		
+		double radians = Math.atan(y1/ x1);
+		
+		double rotation = radians * 180 / Math.PI; 
+		return rotation;
+	}
+
 	
 	public static double getDistanceBetweenPoints(Point from, Point to) {
 		double x1 = (from.x - to.x)*(from.x - to.x);
