@@ -1,3 +1,7 @@
+Created by Nir Meir, Ashraf Hijazi, Abed Massarwa
+
+
+
 # Drone Simulator
 The main goal for this project is to try find good solution of small drone, flying inside indoor building without getting hit and crash.
 The project fully autonomous 2d drone simulator, this simulator is trying to be realistic as much as it can, with lidar sensors,gyroscope sensor ,optical flow sensor and speed sensor.
