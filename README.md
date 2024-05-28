@@ -45,7 +45,7 @@ If you wish to add custom map it has to be black/white pixels- black is wall/obs
 - Sometimes may be indifferent parameters which causing some pixels override - solution is to re-run project.
 
 ## Images
-![](https://i.imgur.com/lweL2Fp.png)
+![](https://imgur.com/a/2j2ntCi)
 ![](https://i.imgur.com/unUpwsL.png)
 ![](https://i.imgur.com/Ptnut2b.png)
 ![](https://i.imgur.com/Do0Z3gP.png)
