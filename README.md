@@ -1,3 +1,7 @@
+Created by Nir Meir, Ashraf Hijazi, Abed Massarwa
+
+
+
 # Drone Simulator
 The main goal for this project is to try find good solution of small drone, flying inside indoor building without getting hit and crash.
 The project fully autonomous 2d drone simulator, this simulator is trying to be realistic as much as it can, with lidar sensors,gyroscope sensor ,optical flow sensor and speed sensor.
@@ -45,10 +49,10 @@ If you wish to add custom map it has to be black/white pixels- black is wall/obs
 - Sometimes may be indifferent parameters which causing some pixels override - solution is to re-run project.
 
 ## Images
-![](https://i.imgur.com/lweL2Fp.png)
-![](https://i.imgur.com/unUpwsL.png)
-![](https://i.imgur.com/Ptnut2b.png)
-![](https://i.imgur.com/Do0Z3gP.png)
-![](https://i.imgur.com/Y73PO2C.png)
-![graphexample](https://user-images.githubusercontent.com/28596354/60256218-cc095680-98d9-11e9-8ab4-70c00e863df8.png)
+![full search](https://github.com/Ashrafhij/Ex1---DroneSimulator/assets/24902621/585928ea-5c81-429c-b8cd-319ae91812c3)
+![manual control](https://github.com/Ashrafhij/Ex1---DroneSimulator/assets/24902621/b1d87504-f97f-4314-b37e-6ebba41a1a80)
+![return home](https://github.com/Ashrafhij/Ex1---DroneSimulator/assets/24902621/2c78a592-2161-4b83-9e21-fc892f72aac9)
+![controller](https://github.com/Ashrafhij/Ex1---DroneSimulator/assets/24902621/b825c038-d594-4cda-86fb-1876bf7a9694)
+
+
 
