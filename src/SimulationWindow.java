@@ -41,7 +41,7 @@ public class SimulationWindow {
         // Create panel for buttons and labels using GridBagLayout
         JPanel controlPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 0, 0, 0); // Add padding
+        gbc.insets = new Insets(5, 5, 5, 5); // Add padding
 
         // Create panels for button groups
         JPanel startPausePanel = new JPanel(new GridLayout(1, 1));
@@ -148,7 +148,7 @@ public class SimulationWindow {
         // Update constraints to position the buttonPanel on the left side
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 1;
+        gbc.gridheight = 2; // Span across two rows
         controlPanel.add(buttonPanel, gbc);
 
         // Add labels
@@ -163,6 +163,34 @@ public class SimulationWindow {
         gbc.gridy = 1; // Update the gridy value for the second label
         gbc.gridwidth = 1;
         controlPanel.add(info_label2, gbc);
+
+        // Example list of points
+        String[] pointsData = {
+            "Point A",
+            "Point B",
+            "Point C",
+            "Point D",
+            "Point E"
+        };
+
+        JList<String> pointsList = new JList<>(pointsData);
+        pointsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // Single selection mode
+        JScrollPane pointsScrollPane = new JScrollPane(pointsList);
+        
+        // Create panel for the list of points
+        JPanel pointsPanel = new JPanel(new BorderLayout());
+        JLabel pointsLabel = new JLabel("List of Points:");
+        pointsPanel.add(pointsLabel, BorderLayout.NORTH);
+        pointsPanel.add(pointsScrollPane, BorderLayout.CENTER);
+
+        // Update constraints to position the pointsPanel next to the map
+        gbc.gridx = 1; // Adjust according to your layout needs
+        gbc.gridy = 0;
+        gbc.gridheight = 1; // Reset grid height
+        gbc.gridwidth = 1; // Reset grid width
+        gbc.weightx = 1.0; // Horizontal weight to occupy remaining space
+        gbc.fill = GridBagConstraints.BOTH; // Fill both horizontal and vertical space
+        controlPanel.add(pointsPanel, gbc);
 
         frame.getContentPane().add(controlPanel, BorderLayout.PAGE_END);
 
